@@ -1,0 +1,32 @@
+{
+  "name": "campus-autofill",
+  "private": true,
+  "version": "0.1.0",
+  "description": "校招快填:参考个人简历自动填写校招网申页面的桌面工具(当前为前端 Demo 试用版)",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -b && tsc -p tsconfig.electron.json",
+    "build": "tsc -b && tsc -p tsconfig.electron.json && vite build --emptyOutDir",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "start:electron": "electron .",
+    "package": "electron-forge package"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^8.0.1",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.5.1",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

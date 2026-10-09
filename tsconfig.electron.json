@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    /*
+     * 必须带 DOM:fillScript.cjs 的函数是「序列化后注入浏览器执行」的,
+     * preload.cjs 本身就跑在渲染进程里,两者合法引用 document/window/CSS/HTMLInputElement。
+     * 代价是 main.cjs 也能看到 DOM 全局(本该只有 Node 环境)——为保住单一可跑的检查入口,
+     * 接受这个取舍;主进程真正的风险(Electron API 误用、属性拼写、undefined 属性)依然全部覆盖。
+     */
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "node16",
+    "moduleResolution": "node16",
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    /* 主进程是 .cjs,只做检查不产出 */
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+
+    /*
+     * 主进程历史上完全不在 tsc 视野内(tsconfig.app.json 只 include src),
+     * 而 mainFrame undefined / currentId undefined / 假填写成功 等事故全部出在这里。
+     * 首轮接入先不开 strict 全套,把「真实缺陷」与「风格噪音」分开;
+     * 但 noImplicitThis 必须开——它让对象字面量方法里的 this 有类型,
+     * 才能抓到 autofill 状态机字段拼写/未声明这类历史事故的同类问题。
+     */
+    "strict": false,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["electron/**/*.cjs", "electron/**/*.d.ts"]
+}

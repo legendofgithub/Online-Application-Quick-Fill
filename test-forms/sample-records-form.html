@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>校招快填 · 重复区块夹具</title>
+<style>
+  body { font-family: system-ui, "Microsoft YaHei", sans-serif; margin: 24px; max-width: 720px; }
+  h2 { margin: 22px 0 8px; font-size: 16px; border-left: 3px solid #4f46e5; padding-left: 8px; }
+  .block { border: 1px solid #ddd; border-radius: 6px; padding: 10px; margin-bottom: 10px; }
+  .row { display: grid; grid-template-columns: 120px 1fr; gap: 8px; margin-bottom: 6px; align-items: center; }
+  label { font-size: 13px; color: #444; }
+  input, select, textarea { padding: 4px 6px; font: inherit; }
+</style>
+</head>
+<body>
+<h1>校园招聘申请表(重复区块夹具)</h1>
+<form autocomplete="off">
+  <h2>基本信息</h2>
+  <div class="row"><label for="name">姓名</label><input id="name" type="text"></div>
+  <div class="row"><label for="phone">手机号码</label><input id="phone" type="text"></div>
+
+  <h2>教育经历</h2>
+  <div class="section" id="edu">
+    <div class="block">
+      <div class="row"><label for="edu0-school">学校名称</label><input id="edu0-school" type="text"></div>
+      <div class="row"><label for="edu0-major">专业</label><input id="edu0-major" type="text"></div>
+      <div class="row"><label for="edu0-degree">学历</label>
+        <select id="edu0-degree"><option value="">请选择</option><option value="本科">本科</option><option value="硕士">硕士</option><option value="博士">博士</option></select>
+      </div>
+      <div class="row"><label for="edu0-start">入学时间</label><input id="edu0-start" type="date"></div>
+      <div class="row"><label for="edu0-end">毕业时间</label><input id="edu0-end" type="date"></div>
+    </div>
+    <div class="block">
+      <div class="row"><label for="edu1-school">学校名称</label><input id="edu1-school" type="text"></div>
+      <div class="row"><label for="edu1-major">专业</label><input id="edu1-major" type="text"></div>
+      <div class="row"><label for="edu1-degree">学历</label>
+        <select id="edu1-degree"><option value="">请选择</option><option value="本科">本科</option><option value="硕士">硕士</option><option value="博士">博士</option></select>
+      </div>
+      <div class="row"><label for="edu1-start">入学时间</label><input id="edu1-start" type="date"></div>
+      <div class="row"><label for="edu1-end">毕业时间</label><input id="edu1-end" type="date"></div>
+    </div>
+  </div>
+
+  <h2>实习经历</h2>
+  <div class="section" id="exp">
+    <div class="block">
+      <div class="row"><label for="exp0-company">公司名称</label><input id="exp0-company" type="text"></div>
+      <div class="row"><label for="exp0-title">职位</label><input id="exp0-title" type="text"></div>
+      <div class="row"><label for="exp0-kind">工作性质</label>
+        <select id="exp0-kind"><option value="">请选择</option><option value="实习">实习</option><option value="全职">全职</option><option value="兼职">兼职</option></select>
+      </div>
+      <div class="row"><label for="exp0-start">开始时间</label><input id="exp0-start" type="date"></div>
+      <div class="row"><label for="exp0-end">结束时间</label><input id="exp0-end" type="date"></div>
+      <div class="row"><label for="exp0-desc">工作描述</label><textarea id="exp0-desc" rows="3"></textarea></div>
+    </div>
+    <div class="block">
+      <div class="row"><label for="exp1-company">公司名称</label><input id="exp1-company" type="text"></div>
+      <div class="row"><label for="exp1-title">职位</label><input id="exp1-title" type="text"></div>
+      <div class="row"><label for="exp1-kind">工作性质</label>
+        <select id="exp1-kind"><option value="">请选择</option><option value="实习">实习</option><option value="全职">全职</option><option value="兼职">兼职</option></select>
+      </div>
+      <div class="row"><label for="exp1-start">开始时间</label><input id="exp1-start" type="date"></div>
+      <div class="row"><label for="exp1-end">结束时间</label><input id="exp1-end" type="date"></div>
+      <div class="row"><label for="exp1-desc">工作描述</label><textarea id="exp1-desc" rows="3"></textarea></div>
+    </div>
+    <div class="block">
+      <div class="row"><label for="exp2-company">公司名称</label><input id="exp2-company" type="text"></div>
+      <div class="row"><label for="exp2-title">职位</label><input id="exp2-title" type="text"></div>
+      <div class="row"><label for="exp2-kind">工作性质</label>
+        <select id="exp2-kind"><option value="">请选择</option><option value="实习">实习</option><option value="全职">全职</option><option value="兼职">兼职</option></select>
+      </div>
+      <div class="row"><label for="exp2-start">开始时间</label><input id="exp2-start" type="date"></div>
+      <div class="row"><label for="exp2-end">结束时间</label><input id="exp2-end" type="date"></div>
+      <div class="row"><label for="exp2-desc">工作描述</label><textarea id="exp2-desc" rows="3"></textarea></div>
+    </div>
+  </div>
+
+  <h2>项目经历</h2>
+  <div class="section" id="prj">
+    <div class="block">
+      <div class="row"><label for="prj0-name">项目名称</label><input id="prj0-name" type="text"></div>
+      <div class="row"><label for="prj0-role">在项目中担任的角色</label><input id="prj0-role" type="text"></div>
+      <div class="row"><label for="prj0-desc">项目描述</label><textarea id="prj0-desc" rows="3"></textarea></div>
+    </div>
+    <div class="block">
+      <div class="row"><label for="prj1-name">项目名称</label><input id="prj1-name" type="text"></div>
+      <div class="row"><label for="prj1-role">在项目中担任的角色</label><input id="prj1-role" type="text"></div>
+      <div class="row"><label for="prj1-desc">项目描述</label><textarea id="prj1-desc" rows="3"></textarea></div>
+    </div>
+  </div>
+
+  <h2>奖学金竞赛获奖其他</h2>
+  <div class="section" id="awd">
+    <div class="block">
+      <div class="row"><label for="awd0-name">奖项名称</label><input id="awd0-name" type="text"></div>
+      <div class="row"><label for="awd0-time">获奖时间</label><input id="awd0-time" type="date"></div>
+      <div class="row"><label for="awd0-level">级别</label>
+        <select id="awd0-level"><option value="">请选择</option><option value="国家级">国家级</option><option value="省级">省级</option><option value="校级">校级</option></select>
+      </div>
+    </div>
+    <!--
+      真实网申的「多段经历」默认只有一行,后续行要靠点「添加」才会生成。
+      这里复现该结构:初始只有 1 行 + 一个添加按钮,点击后克隆出下一行。
+    -->
+    <button type="button" id="awd-add" style="cursor:pointer">+ 添加获奖</button>
+  </div>
+  <script>
+    document.getElementById('awd-add').addEventListener('click', function () {
+      var sec = document.getElementById('awd')
+      var blocks = sec.querySelectorAll('.block')
+      var n = blocks.length
+      var copy = blocks[blocks.length - 1].cloneNode(true)
+      copy.querySelectorAll('[id]').forEach(function (el) { el.id = el.id.replace(/^awd\d+-/, 'awd' + n + '-') })
+      copy.querySelectorAll('label[for]').forEach(function (el) { el.setAttribute('for', el.getAttribute('for').replace(/^awd\d+-/, 'awd' + n + '-')) })
+      copy.querySelectorAll('input,select,textarea').forEach(function (el) {
+        el.value = ''
+        el.removeAttribute('value')
+      })
+      sec.insertBefore(copy, document.getElementById('awd-add'))
+    })
+  </script>
+
+  <!--
+    复现腾讯网申「教育经历」的结构(2026-10-03 起止时间整列填不上的根因):
+    · 标签是控件**之前**的一小段文本(<span>开始时间</span>),没有 label[for]/aria-label
+    · 日期控件是自绘的:只读 input + placeholder「请选择」+ 内部噪音文字「- 至今」
+    · 整行文本远超 30 字(含下面那串说明),所以"整个容器文本"这个候选会被长度上限挡掉
+    id 特意不含 start/end 之类英文,确保只能靠「控件之前的文本」找到标签。
+  -->
+  <h2>教育经历（腾讯样式：标签前置 + 自绘日期控件）</h2>
+  <div class="section" id="edu2">
+    <div class="block">
+      <div class="row">
+        <span>学校名称</span><input id="edu2-school" type="text">
+        <span>专业</span><input id="edu2-major" type="text">
+      </div>
+      <div class="row">
+        <span>开始时间</span>
+        <div class="picker"><input id="edu2-t1" type="text" readonly placeholder="请选择"><span>- 至今</span></div>
+        <span>结束时间</span>
+        <div class="picker"><input id="edu2-t2" type="text" readonly placeholder="请选择"><span>- 至今</span></div>
+        <span>（请按毕业证书上的日期填写，格式为年月，如有疑问请联系教务处）</span>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    其他补充:一次复现腾讯填写报告暴露的三种结构
+    ① 长标签:「手机号码* 如您是中国大陆籍,建议您使用+86…」—— 整串超 30 字,会撞上 matchKey 的长度上限
+    ② <select> 的 option 文本会混进容器文字(报告里出现过一长串 CET-4CET-6TOEFL…)
+    ③ 「起止时间」范围控件:一对只读日期框,共用同一个标签
+    ④ 弱证据块里的「描述」:块标题不含任何关键词,只能靠块内已出现的项目字段佐证
+  -->
+  <h2>其他补充</h2>
+  <div class="section" id="extra">
+    <div class="block">
+      <!-- 复现腾讯的手机号结构:前面先有一个「国家/地区」下拉(选项含 +86)。
+           它绝不能被当成手机号的控件,手机号必须落进后面的文本框。 -->
+      <div class="row">
+        <span>国家/地区</span>
+        <select id="extra-country"><option value="">请选择</option><option value="中国大陆">中国 +86</option><option value="中国香港">中国香港 +852</option><option value="美国">美国 +1</option></select>
+      </div>
+      <div class="row"><span>紧急联系人电话* 如与本人手机号不同，请填写紧急联系人常用的手机号码以便我们在紧急情况下联系到您</span><input id="extra-phone" type="text"></div>
+      <div class="row">
+        <span>英语等级</span>
+        <select id="extra-english"><option value="">请选择</option><option value="CET-4">CET-4</option><option value="CET-6">CET-6</option><option value="TOEFL">TOEFL</option><option value="IELTS">IELTS</option></select>
+      </div>
+      <!-- 日期做成下拉且只到「年」:复现腾讯那种「时间要下拉选」的实现 -->
+      <div class="row">
+        <span>出生日期</span>
+        <select id="extra-birth-year"><option value="">请选择</option><option value="2023年">2023年</option><option value="2024年">2024年</option><option value="2025年">2025年</option><option value="2026年">2026年</option></select>
+      </div>
+    </div>
+    <div class="block">
+      <div class="row">
+        <span>学校名称</span><input id="extra-school" type="text">
+        <span>专业</span><input id="extra-major" type="text">
+      </div>
+      <div class="row">
+        <span>起止时间</span>
+        <div class="picker"><input id="extra-t1" type="text" readonly placeholder="请选择"><span>- 至今</span></div>
+        <div class="picker"><input id="extra-t2" type="text" readonly placeholder="请选择"><span>- 至今</span></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="row"><span>描述</span><textarea id="extra-prj-desc" rows="3"></textarea></div>
+      <div class="row">
+        <span>项目名称</span><input id="extra-prj-name" type="text">
+        <span>在项目中担任的角色</span><input id="extra-prj-role" type="text">
+      </div>
+    </div>
+  </div>
+
+  <!-- 反例:区块外的「个人描述」不该被经历区块的描述污染 -->
+  <h2>自我介绍</h2>
+  <div class="row"><label for="selfdesc">个人描述</label><textarea id="selfdesc" rows="3"></textarea></div>
+</form>
+</body>
+</html>
