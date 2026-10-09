@@ -1,0 +1,170 @@
+/* 悬浮球与面板(全局组件) */
+
+.fb-root {
+  position: fixed;
+  z-index: 1000;
+  width: 64px;
+  height: 64px;
+}
+
+/* 约 64px 半透明渐变圆球,标「填」字 */
+.fb-ball {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.92) 0%, rgba(139, 92, 246, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: transform 0.15s ease;
+}
+
+.fb-ball:hover {
+  transform: scale(1.05);
+}
+
+.fb-ball:active {
+  cursor: grabbing;
+}
+
+.fb-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: 300px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* 悬浮球靠近视口顶部/左缘时,面板向下方/右方展开避让 */
+.fb-panel.below {
+  bottom: auto;
+  top: calc(100% + 12px);
+}
+
+.fb-panel.align-left {
+  right: auto;
+  left: 0;
+}
+
+.fb-panel-header {
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb-panel-body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fb-text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fb-text-success {
+  color: var(--success);
+}
+
+.fb-text-danger {
+  color: var(--danger);
+}
+
+/* 未检测到时的补充提示(比正文更弱,不抢按钮注意力) */
+.fb-hint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.fb-btn {
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 8px 0;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease;
+}
+
+.fb-btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.fb-btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.fb-btn-secondary {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.fb-btn-secondary:hover {
+  background: #e0e7ff;
+}
+
+.fb-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #c7d2fe;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: fb-spin 0.8s linear infinite;
+}
+
+@keyframes fb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fb-progress {
+  height: 6px;
+  background: #eef0f6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fb-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 999px;
+  transition: width 0.18s ease;
+}
+
+/* 自动填写时,被填入控件的短暂高亮 */
+.autofill-flash {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.35);
+}

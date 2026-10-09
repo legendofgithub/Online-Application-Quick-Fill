@@ -1,0 +1,746 @@
+/* 应用骨架与两个路由页面样式 */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.app-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.app-tag {
+  font-size: 12px;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 20px 96px;
+}
+
+.page-title {
+  font-size: 24px;
+  margin: 0 0 6px;
+}
+
+.page-tip {
+  color: var(--text-secondary);
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+/* ---- 页面一:简历管理 ---- */
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.resume-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.resume-card:hover {
+  border-color: #c7d2fe;
+  box-shadow: var(--shadow-md);
+}
+
+.resume-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* 当前使用简历的醒目标记 */
+.resume-card.current {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.resume-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.resume-card-title {
+  font-size: 17px;
+  margin: 0;
+}
+
+.resume-current-badge {
+  font-size: 12px;
+  color: #fff;
+  background: var(--primary);
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.resume-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+  margin: 0;
+}
+
+.resume-field {
+  display: flex;
+  gap: 8px;
+  font-size: 13.5px;
+  border-bottom: 1px dashed #eef0f4;
+  padding: 4px 0;
+}
+
+.resume-field dt {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.resume-field dd {
+  margin: 0;
+  word-break: break-all;
+}
+
+.resume-field.wide {
+  grid-column: 1 / -1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ---- 页面二:模拟网申表单 ---- */
+
+.apply-page {
+  max-width: 780px;
+}
+
+.demo-banner {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  color: var(--warn-text);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  text-align: center;
+}
+
+.apply-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 18px;
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field > label,
+.field-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-field input[type='text'],
+.form-field input[type='date'],
+.form-field select,
+.form-field textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  font: inherit;
+  background: #fff;
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: 2px solid rgba(79, 70, 229, 0.35);
+  border-color: var(--primary);
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+.radio-group {
+  display: flex;
+  gap: 18px;
+  padding: 6px 0;
+}
+
+.radio-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.apply-actions {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 9px 18px;
+  font-size: 14.5px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.submit-message {
+  margin: 0;
+  color: var(--success);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ── 浏览器工具栏(Electron 主窗口,高度与主进程 TOOLBAR_H=48 对齐)── */
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 12px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.bt-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.bt-tab {
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.bt-tab.active {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.bt-nav {
+  display: flex;
+  gap: 2px;
+}
+
+.bt-icon {
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.bt-icon:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.bt-icon:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.bt-url {
+  flex: 1;
+  min-width: 0;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  background: #f8fafc;
+}
+
+.bt-url:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+}
+
+.browse-backdrop {
+  flex: 1;
+  background: #f1f5f9;
+}
+
+/* ── 简历管理:工具栏与卡片操作 ── */
+
+.resume-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.resume-add-btn {
+  width: auto;
+  padding: 8px 22px;
+}
+
+.resume-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-card-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.resume-action-btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-family: inherit;
+  padding: 3px 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.resume-action-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.resume-action-btn.danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+/* ── 简历编辑弹窗 ── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-card {
+  width: min(640px, calc(100vw - 48px));
+  max-height: calc(100vh - 96px);
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 16px 18px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-field label {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.modal-field input[type='text'],
+.modal-field input[type='date'],
+.modal-field select,
+.modal-field textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  height: 34px;
+  padding: 0 10px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: var(--text);
+}
+
+.modal-field textarea {
+  height: auto;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+/*
+ * 未填写的字段标黄高亮:一眼看出简历还缺什么。
+ * 只做视觉提示 —— 不加 required、不拦保存、不弹校验。
+ */
+.modal-field.is-empty label {
+  color: #a06a1b;
+}
+
+.modal-field.is-empty input[type='text'],
+.modal-field.is-empty input[type='date'],
+.modal-field.is-empty select,
+.modal-field.is-empty textarea {
+  background: #fffbe6;
+  border-color: #f0c96b;
+}
+
+.modal-field.is-empty input[type='text']:focus,
+.modal-field.is-empty input[type='date']:focus,
+.modal-field.is-empty select:focus,
+.modal-field.is-empty textarea:focus {
+  background: #fffdf5;
+  border-color: #e0a83a;
+}
+
+/* 未选择任何一项的单选(如「性别」)同样标黄,提示"该项还没选" */
+.modal-field.is-empty .modal-radio {
+  background: #fffbe6;
+  border: 1px dashed #f0c96b;
+  border-radius: var(--radius-md);
+  padding: 4px 8px;
+}
+
+.modal-radio {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  min-height: 34px;
+}
+
+.modal-radio label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13.5px;
+  color: var(--text);
+}
+
+.modal-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+}
+
+.modal-footer .fb-btn {
+  width: auto;
+  padding: 8px 26px;
+}
+
+.resume-action-btn.danger.confirming {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+/* ── 编辑弹窗:分组与自定义字段 ── */
+
+.modal-body {
+  grid-template-columns: 1fr;
+}
+
+.modal-group {
+  grid-column: 1 / -1;
+}
+
+.modal-group h3 {
+  margin: 14px 0 8px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-group h3 .resume-action-btn {
+  margin-left: auto;
+}
+
+.modal-group .modal-field {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-field-wide {
+  grid-column: 1 / -1;
+}
+
+.modal-hint {
+  margin: 4px 0 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* 填写报告右上角:导出报告 + 导出结果提示 */
+.fill-report-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fill-report-export-msg {
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* ── 编辑弹窗:可重复记录卡片(教育背景 / 实习·工作经历)── */
+.record-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fbfcfe;
+  padding: 12px 12px 4px;
+  margin-bottom: 12px;
+}
+
+.record-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.record-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* 卡片内两列排布:短标签 + 输入框;描述类字段用 .modal-field-wide 独占整行 */
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 14px;
+}
+
+.record-card .modal-field {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.custom-field-row {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.custom-field-row input {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  height: 32px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+/* ── 悬浮球面板缺项提示 ── */
+
+.fb-missing {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ── 填写报告横幅 ── */
+
+.fill-report {
+  margin: 12px 24px 0;
+  border: 1px solid #f59e0b;
+  background: #fffbeb;
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+}
+
+.fill-report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #92400e;
+}
+
+.fill-report-tip {
+  margin: 8px 0 6px;
+  font-size: 12.5px;
+  color: #a16207;
+}
+
+.fill-report-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.fill-report-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.fill-report-label {
+  flex: 0 0 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.fill-report-list select {
+  flex: 1;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-family: inherit;
+  background: #fff;
+  max-width: 280px;
+}
+
+.fill-report-linked {
+  color: var(--success);
+  font-size: 13px;
+}
+
+.fill-report {
+  max-height: 224px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}

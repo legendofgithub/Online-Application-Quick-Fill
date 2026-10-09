@@ -1,0 +1,39 @@
+/* 悬浮球窗口:整体透明,球体锚定窗口右下角 */
+
+html,
+body {
+  background: transparent !important;
+  margin: 0;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 覆写页面内 .fb-root 的 fixed 定位:窗口内锚定右下角 */
+.ball-anchored {
+  left: auto;
+  top: auto;
+  right: 12px;
+  bottom: 12px;
+}
+
+/*
+ * 面板翻到球下方时,球改锚窗口右上角。
+ * 必须与主进程的 ballAnchorY() 保持一致:主进程按「球贴窗口顶边」计算窗口原点,
+ * 渲染端若仍把球画在窗口底部,球就会与窗口错位。
+ */
+.ball-anchored.panel-below {
+  top: 12px;
+  bottom: auto;
+}
+
+.ball-misuse {
+  padding: 16px;
+  background: #1f2937;
+  color: #f9fafb;
+  font-size: 13px;
+  border-radius: 10px;
+}

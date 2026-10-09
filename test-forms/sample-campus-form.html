@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>演示集团 2027 校园招聘申请表(本地测试页)</title>
+    <style>
+      body { font-family: 'Microsoft YaHei', sans-serif; background: #f5f6fa; margin: 0; padding: 24px; }
+      .banner { background: #fef3c7; border: 1px solid #f59e0b; padding: 8px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; }
+      form { max-width: 640px; margin: 0 auto; background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+      h1 { font-size: 18px; text-align: center; }
+      .row { display: flex; align-items: center; margin-bottom: 14px; gap: 12px; }
+      .row label { width: 110px; text-align: right; font-size: 14px; color: #374151; flex-shrink: 0; }
+      .row input[type="text"], .row input[type="tel"], .row input[type="email"], .row input[type="date"], .row select, .row textarea {
+        flex: 1; height: 34px; border: 1px solid #d1d5db; border-radius: 6px; padding: 0 10px; font-size: 14px;
+      }
+      .row textarea { height: 80px; padding: 8px 10px; }
+      .radio-group label { width: auto; }
+      .submit-bar { text-align: center; margin-top: 20px; }
+      .fake-select { position: relative; flex: 1; }
+      .fake-select input { width: 100%; box-sizing: border-box; cursor: pointer; }
+      .el-select-dropdown, [role="listbox"] { position: absolute; top: 36px; left: 0; background: #fff; border: 1px solid #d1d5db; border-radius: 6px; list-style: none; margin: 0; padding: 4px 0; z-index: 10; min-width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+      .el-select-dropdown li, [role="option"] { padding: 6px 14px; font-size: 14px; cursor: pointer; }
+      .el-select-dropdown li:hover, [role="option"]:hover { background: #f5f6fa; }
+      .submit-btn { background: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 10px 40px; font-size: 15px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <form id="campus-apply-form" onsubmit="event.preventDefault(); document.getElementById('submit-note').textContent='(若看到此提示说明有人手动点了提交——自动填写工具绝不会点它)'">
+      <div class="banner">本地测试页:模拟第三方公司网申表单,用于验证通用填写引擎(非 demo 演示页)。</div>
+      <h1>演示集团 2027 届校园招聘 · 应聘登记表</h1>
+      <div class="row">
+        <label for="f-name">姓名</label>
+        <input type="text" id="f-name" name="name" />
+      </div>
+      <div class="row">
+        <label for="f-ethnic">民族</label>
+        <input type="text" id="f-ethnic" name="ethnic" />
+      </div>
+      <div class="row">
+        <label for="f-idcard">身份证号码</label>
+        <input type="text" id="f-idcard" name="idcard" />
+      </div>
+      <div class="row">
+        <label for="f-gaokao">高考成绩</label>
+        <input type="text" id="f-gaokao" name="gaokao" />
+      </div>
+      <div class="row">
+        <label for="f-cet">英语等级(CET)</label>
+        <select id="f-cet" name="cet">
+          <option value="">请选择</option>
+          <option>CET-4</option>
+          <option>CET-6</option>
+          <option>专业四级</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="f-emergency">紧急联系人</label>
+        <input type="text" id="f-emergency" name="emergency" />
+      </div>
+      <div class="row">
+        <label for="f-emergency-tel">紧急联系人电话</label>
+        <input type="text" id="f-emergency-tel" name="emergencyTel" />
+      </div>
+      <div class="row radio-group">
+        <label>性别</label>
+        <label><input type="radio" name="gender" value="男" /> 男</label>
+        <label><input type="radio" name="gender" value="女" /> 女</label>
+      </div>
+      <div class="row">
+        <label for="f-birth">出生年月</label>
+        <input type="text" id="f-birth" name="birth" placeholder="如 2004-06" />
+      </div>
+      <div class="row">
+        <label for="f-mobile">手机号码</label>
+        <input type="tel" id="f-mobile" name="mobile" />
+      </div>
+      <div class="row">
+        <label for="f-mail">电子邮箱</label>
+        <input type="email" id="f-mail" name="email" />
+      </div>
+      <div class="row">
+        <label for="f-politic">政治面貌</label>
+        <select id="f-politic" name="politic">
+          <option value="">请选择</option>
+          <option>群众</option>
+          <option>共青团员</option>
+          <option>中共党员</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="f-school">毕业院校</label>
+        <input type="text" id="f-school" name="school" />
+      </div>
+      <div class="row">
+        <label for="f-major">所学专业</label>
+        <input type="text" id="f-major" name="major" />
+      </div>
+      <div class="row">
+        <label for="f-degree">最高学历</label>
+        <select id="f-degree" name="degree">
+          <option value="">请选择</option>
+          <option>大学本科</option>
+          <option>硕士研究生</option>
+          <option>博士研究生</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>婚姻状况</label>
+        <div class="fake-select" id="fs-marriage">
+          <input type="text" readonly="readonly" placeholder="请选择(自绘下拉)" />
+          <ul class="el-select-dropdown" style="display:none">
+            <li class="el-select-dropdown__item">未婚</li>
+            <li class="el-select-dropdown__item">已婚</li>
+            <li class="el-select-dropdown__item">离异</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <label>是否独生子女</label>
+        <div class="fake-select" id="fs-single">
+          <input type="text" role="combobox" aria-haspopup="listbox" aria-expanded="false" placeholder="请选择(ARIA下拉)" />
+          <ul role="listbox" style="display:none">
+            <li role="option">是</li>
+            <li role="option">否</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <label for="f-grad">毕业时间</label>
+        <input type="date" id="f-grad" name="graduation" />
+      </div>
+      <div class="row">
+        <label for="f-job">意向岗位</label>
+        <select id="f-job" name="job">
+          <option value="">请选择</option>
+          <option>技术类-前端开发工程师</option>
+          <option>技术类-后端开发工程师</option>
+          <option>产品类-产品经理</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="f-self">自我评价</label>
+        <textarea id="f-self" name="selfEval"></textarea>
+      </div>
+      <div class="row">
+        <label for="f-ref">推荐人(选填)</label>
+        <input type="text" id="f-ref" name="referrer" />
+      </div>
+      <div class="row">
+        <label for="f-sport">体育特长</label>
+        <input type="text" id="f-sport" name="sport" />
+      </div>
+      <div class="submit-bar">
+        <button type="submit" class="submit-btn">提交申请</button>
+        <p id="submit-note" style="color:#6b7280;font-size:12px"></p>
+      </div>
+    </form>
+  <script>
+    // 模拟自绘下拉组件(Element UI / ARIA 两种形态)
+    document.querySelectorAll('.fake-select').forEach(function (widget) {
+      var input = widget.querySelector('input')
+      var panel = widget.querySelector('ul')
+      input.addEventListener('click', function (e) {
+        e.stopPropagation()
+        var open = panel.style.display !== 'none'
+        document.querySelectorAll('.fake-select ul').forEach(function (p) { p.style.display = 'none' })
+        panel.style.display = open ? 'none' : 'block'
+        input.setAttribute('aria-expanded', String(!open))
+      })
+      panel.querySelectorAll('li').forEach(function (item) {
+        item.addEventListener('click', function (e) {
+          e.stopPropagation()
+          // 模拟框架受控组件:原生 setter + 事件
+          var d = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')
+          if (d && d.set) d.set.call(input, item.textContent.trim())
+          input.dispatchEvent(new Event('input', { bubbles: true }))
+          input.dispatchEvent(new Event('change', { bubbles: true }))
+          panel.style.display = 'none'
+          input.setAttribute('aria-expanded', 'false')
+        })
+      })
+    })
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.fake-select ul').forEach(function (p) { p.style.display = 'none' })
+    })
+  </script>
+  </body>
+</html>
